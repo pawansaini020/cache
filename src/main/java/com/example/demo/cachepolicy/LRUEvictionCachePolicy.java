@@ -18,6 +18,7 @@ public class LRUEvictionCachePolicy<CacheKey> implements CacheEvictionPolicy<Cac
 
     @Override
     public void keyAccessed(CacheKey key) {
+        System.out.println("Cache key accessed key : " + key);
         if (mapper.containsKey(key)) {
             dll.detachNode(mapper.get(key));
             dll.addNodeAtLast(mapper.get(key));
@@ -29,11 +30,13 @@ public class LRUEvictionCachePolicy<CacheKey> implements CacheEvictionPolicy<Cac
 
     @Override
     public CacheKey evictKey() {
+
         DoublyLinkedListNode<CacheKey> first = dll.getFirstNode();
         if(first == null) {
             return null;
         }
         dll.detachNode(first);
+        System.out.println("Cache key evicted according to lru key : " + first.getElement());
         return first.getElement();
     }
 }
