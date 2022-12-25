@@ -10,4 +10,6 @@ public interface CacheStorage<CacheKey, CacheValue> {
     void removeFromCache(CacheKey key) throws CacheKeyNotFoundException;
 
     CacheValue getFromCache(CacheKey key) throws CacheKeyNotFoundException;
+
+    public Integer getCacheSize();
 }

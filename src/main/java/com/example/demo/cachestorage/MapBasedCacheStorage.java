@@ -34,6 +34,11 @@ public class MapBasedCacheStorage<CacheKey, CacheValue> implements CacheStorage<
         return storage.get(key);
     }
 
+    @Override
+    public Integer getCacheSize() {
+        return storage.size();
+    }
+
     private boolean isCacheStorageFull() {
         return storage.size() == capacity;
     }

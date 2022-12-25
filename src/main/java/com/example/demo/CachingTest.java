@@ -10,8 +10,15 @@ public class CachingTest {
         cache.put(1, 10);
         cache.put(2, 20);
 
-        System.out.println(cache.get(2));
+        cache.getCacheSize();
 
+        cache.get(2);
+
+        cache.delete(2);
+        cache.get(2);
+        cache.delete(2);
+
+        cache.getCacheSize();
     }
 
 

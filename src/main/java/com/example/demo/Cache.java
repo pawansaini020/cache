@@ -44,12 +44,23 @@ public class Cache<CacheKey, CacheValue> {
         }
     }
 
-//    public void delete(CacheKey key) {
-//        try {
-//            this.storage.removeFromCache(key);
-//            System.out.println("Successfully deleted cache key : " + key);
-//        } catch (CacheKeyNotFoundException notFoundException) {
-//            System.out.println("Tried to delete non-existing key.");
-//        }
-//    }
+    public void delete(CacheKey key) {
+        try {
+            this.storage.removeFromCache(key);
+            System.out.println("Successfully deleted cache key : " + key);
+        } catch (CacheKeyNotFoundException notFoundException) {
+            System.out.println("Tried to delete non-existing key.");
+        }
+    }
+
+    public Integer getCacheSize() {
+        try {
+            Integer size = this.storage.getCacheSize();
+            System.out.println("Cache size is : " + size);
+            return size;
+        } catch (Exception e) {
+            System.out.println("Unable to fetch cache size.");
+            return 0;
+        }
+    }
 }
