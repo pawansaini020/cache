@@ -9,16 +9,16 @@ public class CachingTest {
         Cache<Integer, Integer> cache = new CacheFactory<Integer, Integer>().defaultCache(5);
 
         //cache test
-        cache.put(1, 10);
-        cache.put(2, 20);
+        cache.put(5, 10);
+        cache.put(7, 50);
 
         cache.getCacheSize();
 
-        cache.get(2);
+        cache.get(7);
 
-        cache.delete(2);
-        cache.get(2);
-        cache.delete(2);
+        cache.delete(7);
+        cache.get(7);
+        cache.delete(7);
 
         cache.getCacheSize();
 
