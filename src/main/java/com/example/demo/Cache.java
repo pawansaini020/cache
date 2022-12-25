@@ -44,12 +44,14 @@ public class Cache<CacheKey, CacheValue> {
         }
     }
 
-    public void delete(CacheKey key) {
+    public Boolean delete(CacheKey key) {
         try {
             this.storage.removeFromCache(key);
             System.out.println("Successfully deleted cache key : " + key);
+            return true;
         } catch (CacheKeyNotFoundException notFoundException) {
             System.out.println("Tried to delete non-existing key.");
+            return false;
         }
     }
 

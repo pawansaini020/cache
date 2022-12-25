@@ -24,12 +24,23 @@ public class CacheTest {
     }
 
     @Test
-    public void deteKeyTest() {
+    public void shouldReturnTrueIfKeyExist() {
 
         Cache<Integer, Integer> cache = new CacheFactory<Integer, Integer>().defaultCache(15);
         cache.put(5, 10);
         cache.put(10, 25);
 
-        cache.delete(10);
+
+        assertEquals(true, cache.delete(10));
+    }
+
+    @Test
+    public void shouldReturnFasleIfKeyExist() {
+
+        Cache<Integer, Integer> cache = new CacheFactory<Integer, Integer>().defaultCache(15);
+        cache.put(5, 10);
+
+
+        assertEquals(true, cache.delete(10));
     }
 }
